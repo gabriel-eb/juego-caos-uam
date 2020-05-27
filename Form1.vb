@@ -1,9 +1,16 @@
 ﻿Public Class FrmJuegoCaos
     Private AristaX(2), AristaY(2) As Single
+    Private UltimaX, UltimaY As Single
     Private Sub FrmJuegoCaos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Randomize()
+        Dim i As Integer
         Me.Show()
         PatronInicio()
+        Do
+            i = CInt(Int(Rnd() * 3))
+            UltimaX = (UltimaX + AristaX(i)) / 2
+            UltimaY = (UltimaY + AristaY(i)) / 2
+        Loop
     End Sub
 
     Private Sub PatronInicio()
