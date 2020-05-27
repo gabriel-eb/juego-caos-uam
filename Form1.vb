@@ -4,12 +4,15 @@
     Private Sub FrmJuegoCaos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Randomize()
         Dim i As Integer
+        Dim Gr As Graphics = Me.CreateGraphics()
         Me.Show()
         PatronInicio()
         Do
             i = CInt(Int(Rnd() * 3))
             UltimaX = (UltimaX + AristaX(i)) / 2
             UltimaY = (UltimaY + AristaY(i)) / 2
+            Gr.DrawLine(Pens.Red, UltimaX, UltimaY, UltimaX + 1, UltimaY + 1)
+            Application.DoEvents()
         Loop
     End Sub
 
